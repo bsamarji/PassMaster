@@ -1,0 +1,5 @@
+.python-version
+pyproject.toml
+.venv/
+vault.json
+__pycache__
