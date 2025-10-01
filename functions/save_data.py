@@ -1,4 +1,5 @@
 import json
+import sys
 
 
 def save_data(entries):
@@ -22,18 +23,19 @@ def save_data(entries):
     except IOError as e:
         # Handle file-related errors (e.g., permissions, disk space, file not writable)
         print(f"Error: Could not write to file {vault}. Details: {e}")
-        return False
+        sys.exit(1)
 
     except TypeError as e:
         # Handle errors if the 'entries' object cannot be serialized to JSON
         print(f"Error: Data provided is not JSON serializable. Details: {e}")
-        return False
+        sys.exit(1)
 
     except Exception as e:
         # Catch any other unexpected errors
         print(f"An unexpected error occurred during save. Details: {e}")
-        return False
+        sys.exit(1)
 
     # If the code reaches this point, the save was successful
-    print(f"Entry successfully saved to vault!")
-    return True
+    print("Entry successfully saved to vault!")
+    print("Locking vault...")
+    sys.exit(0)

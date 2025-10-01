@@ -1,5 +1,4 @@
 import argparse
-import os
 from functions.load_data import load_data
 from functions.save_data import save_data
 from functions.find_entry import find_entry
@@ -29,9 +28,7 @@ def main():
     if args.add:
         existing_data = load_data()
         data_to_save = add_entry(data=existing_data)
-        successful_save = save_data(entries=data_to_save)
-        if successful_save is True:
-            print("Vault locked...")
+        save_data(entries=data_to_save)
 
 
     if args.find:
