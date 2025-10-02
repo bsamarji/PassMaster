@@ -36,6 +36,4 @@ def save_data(entries):
         sys.exit(1)
 
     # If the code reaches this point, the save was successful
-    print("Entry successfully saved to vault!")
-    print("Locking vault...")
-    sys.exit(0)
+    print("\nEntry successfully saved to vault!")

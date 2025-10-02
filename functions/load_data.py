@@ -14,10 +14,14 @@ def load_data():
     vault = "./vault.json"
 
     # Check 1: File existence and size (still useful for expected scenarios)
-    if not os.path.isfile(vault) or os.stat(vault).st_size == 0:
+    if not os.path.isfile(vault):
         print(
-            f"Vault file '{vault}' not found or is empty. Returning an empty list to proceed."
+            f"Vault file '{vault}' not found. Creating empty vault..."
         )
+        return []
+    
+    if os.stat(vault).st_size == 0:
+        print(f"Vault file '{vault}' is empty. Continuing with empty vault.")
         return []
 
     # Check 2: Error handling for reading and JSON parsing
@@ -32,7 +36,7 @@ def load_data():
                 )
                 print("Exiting program to prevent potential data loss or corruption.")
                 sys.exit(1)  # Exit with a non-zero status (1) to indicate failure
-
+                
             return data
 
     except json.JSONDecodeError as e:
