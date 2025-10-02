@@ -22,7 +22,7 @@ def main():
         help="Find an entry/entries by searching on the entry name in the vault.",
     )
     parser.add_argument(
-        "--list", action="store_true", help="Lists all entries stored in the vault."
+        "--list", action="store_true", help="Lists all the names of the entries stored in the vault."
     )
 
     args = parser.parse_args()
